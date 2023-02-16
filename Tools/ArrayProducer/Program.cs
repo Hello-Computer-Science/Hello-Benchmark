@@ -11,6 +11,7 @@ var ask = (string msg) =>
 int length = int.Parse(ask("Input array length: "));
 (int, int) range = ask("Input element range: ").Split('-').ToIntInt();
 Random random = new();
+if (File.Exists("array.txt")) File.Delete("array.txt");
 FileStream fs = new("array.txt", FileMode.OpenOrCreate, FileAccess.Write);
 StreamWriter sw = new(fs);
 
@@ -25,5 +26,5 @@ sw.Dispose();
 fs.Dispose();
 
 Console.WriteLine("Done!");
-Console.ReadKey();
+// Console.ReadKey();
 
